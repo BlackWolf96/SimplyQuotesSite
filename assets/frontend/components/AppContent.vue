@@ -12,35 +12,37 @@
             </div>
             <div class="content-box" v-for="item in items" :key="item.id">
               <div class="item">{{ item.autor }}</div>
-              <div class="item">{{ item.tekst }}</div>
-              <div class="item">{{ item.data }}</div>
-              <div class="item">{{ item.data }}</div>
+              <div class="item">{{ item.tresc }}</div>
+              <div class="item">{{ format_date(item.added.date) }}</div>
+              <div class="item">{{ item.link }}</div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
+import moment from 'moment';
+
 export default {
   name: 'App',
   data() {
     return {
-      items: [
-        { 
-          id: 1,
-          autor: 'nie wiem',
-          tekst: 'nie wiem',
-          data: 'dzis',
-        },
-        { 
-          id: 2,
-          autor: 'nie wiem',
-          tekst: 'To jest jakiś tekst. Ten tekst jest jakimś tekstem który mówi o jakimś tekście.',
-          data: 'dzis',
-        },
-      ],
       msg1: 'Some Quote',
+      items: null
     }
+  },
+  mounted(){
+    axios
+      .get(`http://127.0.0.1:8000/home/json`)
+      .then(response => (this.items = response.data));
+  },
+  methods: {
+    format_date(value){
+         if (value) {
+           return moment(String(value)).format('YYYY-MM-DD')
+          }
+      }
   }
 }
 </script>

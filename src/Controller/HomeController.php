@@ -34,11 +34,11 @@ class HomeController extends AbstractController
             $toArray[] = array(
                 'autor' => $item->getAutor(),
                 'tresc' => $item->getTresc(),
-                'data' => $item->getData(),
+                'added' => $item->getData(),
                 'link' => $item->getKlip()
             );
         }
 
-        return new JsonResponse($toArray);        
+        return new JsonResponse($toArray); 
     }
 }
