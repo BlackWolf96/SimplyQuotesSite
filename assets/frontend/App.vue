@@ -10,14 +10,21 @@
       </nav>
     </div>
     <div class="container">
-      {{ msg }}
+      <AppContent />
     </div>
+    <footer>
+    </footer>
   </div>
 </template>
 
 <script>
+import AppContent from './components/AppContent.vue'
+
 export default {
   name: 'App',
+  components: {
+    AppContent,
+  },
   data() {
     return {
       msg: 'This is my weird msg in container box',
@@ -27,13 +34,14 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
 $primary-color: black;
 $secondary-color: blue;
 
 body{
   margin:0;
   padding:0;
-  font-family: '';
+  font-family: 'Roboto', sans-serif;
 }
 .wrapper{
   width:100%;
@@ -60,6 +68,8 @@ body{
       color:white;
     }
   }
-
+  .container{
+    width:100%;
+  }
 }
 </style>
