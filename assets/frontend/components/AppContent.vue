@@ -101,11 +101,15 @@ export default {
     }
   }
   .content-box:hover{
+    min-height:40px;
+    height:auto;
+    background-color: grey;
+    color:white;
     .item{
       width:25%;
       overflow: visible;
       text-overflow:clip;
-      
+      word-wrap: break-word;
     }
 
   }
