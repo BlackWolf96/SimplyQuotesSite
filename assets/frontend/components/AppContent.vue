@@ -6,9 +6,9 @@
             </div>
             <div class="info-bar">
               <div>Autor</div>
-              <div>Autor</div>
-              <div>Autor</div>
-              <div>Autor</div>
+              <div>Treść</div>
+              <div>Data</div>
+              <div>Link</div>
             </div>
             <div class="content-box" v-for="item in items" :key="item.id">
               <div class="item">{{ item.autor }}</div>
@@ -28,7 +28,7 @@ export default {
   name: 'App',
   data() {
     return {
-      msg1: 'Some Quote',
+      msg1: 'Lista Cytatów',
       items: null
     }
   },
@@ -40,7 +40,7 @@ export default {
   methods: {
     format_date(value){
          if (value) {
-           return moment(String(value)).format('YYYY-MM-DD')
+           return moment(String(value)).format('DD-MM-YYYY')
           }
       }
   }
@@ -60,6 +60,7 @@ export default {
     height: 70px;
     background-color: black;
     color:white;
+    font-weight:bold;
     display:flex;
     align-items:center;
     justify-content: center;
