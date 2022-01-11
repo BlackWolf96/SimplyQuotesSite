@@ -53,7 +53,7 @@ export default {
   margin:auto;
   margin-top:100px;
   width:70%;
-  height:600px;
+  min-height:600px;
   border: 1px solid;
   
   .bar{  
@@ -97,7 +97,7 @@ export default {
       
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap;
+      
     }
   }
   .content-box:hover{
@@ -105,6 +105,7 @@ export default {
       width:25%;
       overflow: visible;
       text-overflow:clip;
+      
     }
 
   }

@@ -4,26 +4,27 @@
       <nav class="navbar">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/Add">Create</a></li>
+
         </ul>
       </nav>
     </div>
     <div class="container">
       <AppContent />
     </div>
-    <footer>
-    </footer>
+    <Footer />
   </div>
 </template>
 
 <script>
-import AppContent from './components/AppContent.vue'
+import AppContent from './components/AppContent.vue';
+import Footer from './components/footer.vue';
 
 export default {
   name: 'App',
   components: {
     AppContent,
+    Footer
   },
   data() {
     return {
@@ -35,6 +36,7 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
 $primary-color: black;
 $secondary-color: blue;
 
