@@ -14,7 +14,9 @@
               <div class="item">{{ item.autor }}</div>
               <div class="item">{{ item.tresc }}</div>
               <div class="item">{{ format_date(item.added.date) }}</div>
-              <div class="item">{{ item.link }}</div>
+              <div class="item" >
+                <a v-bind:href="item.link">Klik</a>
+              </div>
             </div>
         </div>
     </div>
