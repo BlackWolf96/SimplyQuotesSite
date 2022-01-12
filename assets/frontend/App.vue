@@ -16,7 +16,7 @@
 
 <script>
 import AppComponent from './components/AppContent.vue'
-import AppFooter from './components/footer.vue'
+import AppFooter from './components/AppFooter.vue'
 
 export default {
   name: 'App',
