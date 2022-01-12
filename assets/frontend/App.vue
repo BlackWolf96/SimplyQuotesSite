@@ -3,33 +3,22 @@
     <div class="wrapper">
       <nav class="navbar">
         <ul>
+          <router-link to="/">Home</router-link>
           <li><a href="/">Home</a></li>
-          <li><a href="/add">Create</a></li>
+
         </ul>
       </nav>
     </div>
     <div class="container">
-      <AppContent />
+      <router-view />
     </div>
-    <Footer />
+    
   </div>
 </template>
 
 <script>
-import AppContent from './components/AppContent.vue';
-import Footer from './components/footer.vue';
-
 export default {
   name: 'App',
-  components: {
-    AppContent,
-    Footer
-  },
-  data() {
-    return {
-      msg: 'This is my weird msg in container box',
-    }
-  }
 }
 </script>
 

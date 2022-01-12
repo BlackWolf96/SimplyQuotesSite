@@ -28,7 +28,7 @@ import moment from 'moment';
 
 
 export default {
-  name: 'App',
+  name: 'AppComponent',
   data() {
     return {
       msg1: 'Lista Cytatów',
