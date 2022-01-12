@@ -4,8 +4,7 @@
       <nav class="navbar">
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/Add">Create</a></li>
-
+          <li><a href="/add">Create</a></li>
         </ul>
       </nav>
     </div>
