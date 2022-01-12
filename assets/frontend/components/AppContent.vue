@@ -37,7 +37,7 @@ export default {
   },
   mounted(){
     axios
-      .get(`http://127.0.0.1:8000/home/json`)
+      .get(document.URL+`home/json`)
       .then(response => (this.items = response.data));
   },
   methods: {

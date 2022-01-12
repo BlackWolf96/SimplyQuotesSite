@@ -3,22 +3,27 @@
     <div class="wrapper">
       <nav class="navbar">
         <ul>
-          <router-link to="/">Home</router-link>
           <li><a href="/">Home</a></li>
-
         </ul>
       </nav>
     </div>
     <div class="container">
-      <router-view />
+      <AppComponent />
     </div>
-    
+    <AppFooter />
   </div>
 </template>
 
 <script>
+import AppComponent from './components/AppContent.vue'
+import AppFooter from './components/footer.vue'
+
 export default {
   name: 'App',
+  components: {
+    AppComponent,
+    AppFooter
+  }
 }
 </script>
 
