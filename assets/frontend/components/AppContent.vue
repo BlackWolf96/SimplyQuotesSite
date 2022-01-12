@@ -15,12 +15,7 @@
               <div class="item">{{ item.tresc }}</div>
               <div class="item">{{ format_date(item.added.date) }}</div>
               <div class="item">{{ item.link }}</div>
-            </div>   
-            {{ records }}
-
-            --
-            {{ items }}
-            <pagination v-model="page" :records="555" @paginate="callback"/>   
+            </div>
         </div>
     </div>
 </template>
@@ -34,12 +29,6 @@ export default {
   name: 'App',
   data() {
     return {
-      page: 1,
-      perPage:25,
-      records: 250,
-      records: [
-        'ble',
-      ],
       msg1: 'Lista Cytatów',
       items: null
     }
@@ -55,30 +44,9 @@ export default {
        return moment(String(value)).format('DD-MM-YYYY')
       }
     },
-    callback: function(page){
-      console.log( page );
-      console.log( this.items.length );
-      console.log( this.perPage );
-      for(let i=0;i<= 25;i++){
-        console.warn(this.items[i]);
-      }
-    }
+    
   },
-  computed: {
-    displayedRecords() {
-      const start = this.per-page * (this.page -1);
-      const end = this.start + this.perPage;
-      return this.records.slice(start, end);
-    }
-  },
-  created() {
-    const ss = JSON.stringify(this.items);
-    for(let i=0;i<= 25;i++){
 
-      console.log( this.ss[i])
-    }
-  }
-  
 }
 </script>
 
