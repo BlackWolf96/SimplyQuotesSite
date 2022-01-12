@@ -15,7 +15,9 @@
               <div class="item">{{ item.tresc }}</div>
               <div class="item">{{ format_date(item.added.date) }}</div>
               <div class="item">{{ item.link }}</div>
-            </div>
+              
+            </div>   
+            <pagination v-model="page" :records="500" @paginate="callback"/>   
         </div>
     </div>
 </template>
@@ -24,10 +26,14 @@
 import axios from 'axios';
 import moment from 'moment';
 
+
 export default {
   name: 'App',
   data() {
     return {
+      page: 1,
+      perPage: 25,
+      records: [],
       msg1: 'Lista Cytatów',
       items: null
     }
@@ -39,16 +45,22 @@ export default {
   },
   methods: {
     format_date(value){
-         if (value) {
-           return moment(String(value)).format('DD-MM-YYYY')
-          }
+      if (value) {
+       return moment(String(value)).format('DD-MM-YYYY')
       }
-  }
+    }
+  },
+  computed: {
+    displayedRecords() {
+      const startIndex = this.perPage * (this.page - 1);
+      const endIndex = startIndex + this.perPage;
+      return this.records.slice(startIndex, endIndex);
+    }
+  },
 }
 </script>
 
 <style scoped lang="scss">
-
 .wrapper-bar{
   margin:auto;
   margin-top:100px;

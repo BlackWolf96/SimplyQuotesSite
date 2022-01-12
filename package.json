@@ -23,6 +23,7 @@
         "tall": "^4.1.0",
         "vue": "^2.6.14",
         "vue-loader": "^15.9.8",
+        "vue-pagination-2": "^3.0.91",
         "vue-template-compiler": "^2.6.14"
     }
 }
