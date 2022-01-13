@@ -8,6 +8,7 @@
               <input type="url" v-model="link" placeholder="URL" />
           </form>
           <button @click="myMethod">Dodaj</button>
+          <li v-for="err in error" :key="err.id">{{ err }}</li>
       </div>
   </div>
 </template>
@@ -22,11 +23,26 @@ export default{
             tresc: null,
             data: null,
             link: null,
+            error: null
         }
     },
     methods: {
-        myMethod: function(){
-            console.log('click', this.autor)
+        myMethod: function(e){
+            this.error = [];
+
+            if(!this.autor){
+                this.error.push('Wypełnij Autora');
+            }
+            if(!this.tresc){
+                this.error.push('Wypełnij treść');
+            }
+            if(!this.data){
+                this.error.push('Wypełnij DATE');
+            }
+            if(!this.link){
+                this.error.push('Wypełnij pole');
+            }
+            
 
             axios.post('http://127.0.0.1:8000/home/add', {
                 autor: this.autor,
@@ -38,6 +54,7 @@ export default{
         }).catch(error =>{
             console.warn(error);
         })
+        e.preventDefault()
         }
     }
 }
@@ -68,7 +85,6 @@ export default{
         border:1px solid red;
         color:white;
     }
-    
 }
 
 </style>
