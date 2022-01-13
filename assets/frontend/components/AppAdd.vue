@@ -2,21 +2,52 @@
   <div>
       <div class="form-wrapper">
           <form>
-              <input type="text" name="autor" />
-              <input type="text" name="tresc" />
-              <input type="data" name="data" />
-              <input type="url" name="link" />
+              <input type="text" v-model="autor" placeholder="Autor" />
+              <input type="text" v-model="tresc" placeholder="Treść" />
+              <input type="date" v-model="data" placeholder="Data" />
+              <input type="url" v-model="link" placeholder="URL" />
+              
           </form>
+          <button @click="myMethod">Dodaj</button>
       </div>
   </div>
 </template>
 
 <script>
-export default {
+import axios from 'axios'
 
+export default{
+    data() {
+        return {
+            autor: null,
+            tresc: null,
+            data: null,
+            link: null,
+
+        }
+    },
+    mounted(){
+        
+    },
+    methods: {
+        myMethod: function(){
+            console.log('click', this.autor)
+
+            axios.post('http://127.0.0.1:8000/home/add', {
+                autor: this.autor,
+                tresc: this.tresc,
+                date: this.data,
+                link: this.link,
+                test: 'kurła',
+            }).then(function(response){
+            console.log(response.data);
+        }).catch(error =>{
+            console.warn(error);
+        })
+        }
+    }
 }
 </script>
-
-<style>
+<style scoped lang="scss">
 
 </style>

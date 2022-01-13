@@ -46,7 +46,6 @@ export default {
        return moment(String(value)).format('DD-MM-YYYY')
       }
     },
-    
   },
 }
 </script>

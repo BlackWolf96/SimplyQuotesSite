@@ -9,6 +9,11 @@ use App\Entity\Quotes;
 use App\Repository\QuotesRepository;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Persistence\ManagerRegistry;
+
+use Symfony\Component\Validator\Constraints\DateTime;
+
 
 class HomeController extends AbstractController
 {
@@ -40,5 +45,36 @@ class HomeController extends AbstractController
         }
 
         return new JsonResponse($toArray); 
+    }
+    /**
+     * @Route("/home/add");
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+    */
+    public function getData(Request $request,ManagerRegistry $doctrine){
+        if($request->getMethod() == 'POST'){
+            $json = $request->getContent();
+
+            $decode = json_decode($json, true);
+            
+            $autor = $decode['autor'];
+            $tresc = $decode['tresc'];
+            $data = $decode['date'];
+            $link = $decode['link'];
+            $entityManager = $doctrine->getManager();
+            $quote = new Quotes;
+            $quote->setAutor($autor);
+            $quote->setTresc($tresc);
+            $quote->setData(new \DateTime($data));
+            $quote->setKlip($link);
+            $entityManager->persist($quote);
+            $entityManager->flush();
+    
+           
+           
+         
+            return $this->json($autor);
+        }
+
     }
 }

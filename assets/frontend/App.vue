@@ -1,11 +1,7 @@
 <template>
   <div>
     <div class="wrapper">
-      <nav class="navbar">
-        <ul>
-          <li><a href="/">Home</a></li>
-        </ul>
-      </nav>
+      <AppAdd />
     </div>
     <div class="container">
       <AppComponent />
@@ -15,12 +11,14 @@
 </template>
 
 <script>
+import AppAdd from './components/AppAdd.vue'
 import AppComponent from './components/AppContent.vue'
 import AppFooter from './components/AppFooter.vue'
 
 export default {
   name: 'App',
   components: {
+    AppAdd,
     AppComponent,
     AppFooter
   }
@@ -44,27 +42,12 @@ body{
   background-color: $primary-color;
   color: white;
 
-  .navbar{
-    position: absolute;
-    right:0;
-    margin-right: 10px;
-    height:10vh;
-    display:flex;
-    align-items: center;
-    justify-items: content;
-
-    ul{
-      list-style-type:none;
-      display:flex;
-      gap:25px;
-    }
-    a{
-      text-decoration: none;
-      color:white;
-    }
-  }
-  .container{
-    width:100%;
-  }
+  display:flex;
+  align-items: center;
+  justify-content: center;
 }
+.container{
+  width:100%;
+}
+
 </style>

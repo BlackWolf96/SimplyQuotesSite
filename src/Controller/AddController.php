@@ -13,6 +13,11 @@ class AddController extends AbstractController
      */
     public function index(): Response
     {
+
+        
+
+        $_POST = json_decode(file_get_contents("php://input"),true);
+        
         return $this->render('add/index.html.twig', [
             'controller_name' => 'AddController',
         ]);
