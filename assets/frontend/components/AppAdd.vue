@@ -6,7 +6,6 @@
               <input type="text" v-model="tresc" placeholder="Treść" />
               <input type="date" v-model="data" placeholder="Data" />
               <input type="url" v-model="link" placeholder="URL" />
-              
           </form>
           <button @click="myMethod">Dodaj</button>
       </div>
@@ -23,7 +22,6 @@ export default{
             tresc: null,
             data: null,
             link: null,
-
         }
     },
     mounted(){
@@ -38,7 +36,6 @@ export default{
                 tresc: this.tresc,
                 date: this.data,
                 link: this.link,
-                test: 'kurła',
             }).then(function(response){
             console.log(response.data);
         }).catch(error =>{
