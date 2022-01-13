@@ -24,9 +24,6 @@ export default{
             link: null,
         }
     },
-    mounted(){
-        
-    },
     methods: {
         myMethod: function(){
             console.log('click', this.autor)
@@ -46,5 +43,32 @@ export default{
 }
 </script>
 <style scoped lang="scss">
+.form-wrapper{
+    display:flex;
+    align-items: center;
+    gap: 10px;
+    input{
+        height:35px;
+        background-color: transparent;
+        border:none;
+        border-bottom: 1px solid red;
+        color:white;
+    }
+    ::placeholder{
+        color:red;
+    }
+    ::-webkit-calendar-picker-indicator{
+        filter: invert(55);
+        color:red;
+    }
+    button{
+        height:35px;
+        width:75px;
+        background-color:red;
+        border:1px solid red;
+        color:white;
+    }
+    
+}
 
 </style>
