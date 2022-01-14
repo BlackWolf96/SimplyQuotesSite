@@ -38,7 +38,8 @@ body{
 }
 .wrapper{
   width:100%;
-  height:10vh;
+  min-height:10vh;
+  height:auto;
   background-color: $primary-color;
   color: white;
 

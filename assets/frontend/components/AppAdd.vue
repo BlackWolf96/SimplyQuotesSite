@@ -8,8 +8,11 @@
               <input type="url" v-model="link" placeholder="URL" />
           </form>
           <button @click="myMethod">Dodaj</button>
-          <li v-for="err in error" :key="err.id">{{ err }}</li>
+
       </div>
+      <div class="err">
+            <li v-for="err in error" :key="err.id">{{ err }}</li>
+        </div>
   </div>
 </template>
 
@@ -28,33 +31,42 @@ export default{
     },
     methods: {
         myMethod: function(e){
+            var status = true;
             this.error = [];
 
             if(!this.autor){
-                this.error.push('Wypełnij Autora');
+                status = false;
+                this.error.push('Wypełnij pole Autor');
             }
             if(!this.tresc){
-                this.error.push('Wypełnij treść');
+                status = false;
+                this.error.push('Wypełnij pole Treść');
             }
             if(!this.data){
-                this.error.push('Wypełnij DATE');
+                status = false;
+                this.error.push('Wypełnij pole Data');
             }
             if(!this.link){
-                this.error.push('Wypełnij pole');
+                status = false;
+                this.error.push('Wypełnij pole URL');
             }
             
-
-            axios.post('http://127.0.0.1:8000/home/add', {
-                autor: this.autor,
-                tresc: this.tresc,
-                date: this.data,
-                link: this.link,
-            }).then(function(response){
-            console.log(response.data);
-        }).catch(error =>{
-            console.warn(error);
-        })
-        e.preventDefault()
+            if( status == true ){
+                axios.post('http://127.0.0.1:8000/home/add', {
+                    autor: this.autor,
+                    tresc: this.tresc,
+                    date: this.data,
+                    link: this.link,
+                }).then(function(response){
+                    console.log(response.data);
+                }).catch(error =>{
+                    console.warn(error);
+                })
+            }
+            else
+            {
+                e.preventDefault()
+            }
         }
     }
 }
@@ -85,6 +97,17 @@ export default{
         border:1px solid red;
         color:white;
     }
+    
 }
+.err{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    
 
+    li{
+        padding:10px;
+        list-style-type: none;
+    }
+}
 </style>
