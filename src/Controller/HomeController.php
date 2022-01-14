@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Persistence\ManagerRegistry;
 
 use Symfony\Component\Validator\Constraints\DateTime;
-
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class HomeController extends AbstractController
 {
@@ -70,10 +70,7 @@ class HomeController extends AbstractController
             $entityManager->persist($quote);
             $entityManager->flush();
     
-           
-           
-         
-            return $this->json($autor);
+            return $this->json('Dodano');
         }
 
     }
