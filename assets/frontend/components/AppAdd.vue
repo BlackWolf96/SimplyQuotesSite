@@ -7,7 +7,7 @@
               <input type="date" v-model="data" placeholder="Data" />
               <input type="url" v-model="link" placeholder="URL" />
           </form>
-          <button @click="myMethod">Dodaj</button>
+          <button @click="Validate">Dodaj</button>
 
       </div>
       <div class="err">
@@ -30,7 +30,7 @@ export default{
         }
     },
     methods: {
-        myMethod: function(e){
+        Validate: function(e){
             var status = true;
             this.error = [];
 

@@ -2,7 +2,7 @@
     <div>
         <div class="wrapper-bar">
             <div class="bar">
-                {{ msg1 }}
+                Lista Cytatów
             </div>
             <div class="info-bar">
               <div>Autor</div>

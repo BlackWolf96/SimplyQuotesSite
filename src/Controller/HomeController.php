@@ -15,6 +15,10 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 
+
+use App\Entity\Validator;
+
+
 class HomeController extends AbstractController
 {
     /**
